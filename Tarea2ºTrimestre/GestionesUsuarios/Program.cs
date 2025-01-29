@@ -7,7 +7,7 @@
            //vacias entrenamientos: vaciara la lsita de todos los entrenamientos
            // cerrrar sesion
 public class Programa{
-    Scanner teclado = new Scanner(System.in);
+    
 
     public static void Main(string[] args){
         

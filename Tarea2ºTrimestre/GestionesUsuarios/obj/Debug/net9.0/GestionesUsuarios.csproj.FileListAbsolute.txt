@@ -1,0 +1,15 @@
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.AssemblyInfoInputs.cache
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.AssemblyInfo.cs
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.csproj.CoreCompileInputs.cache
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.sourcelink.json
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\bin\Debug\net9.0\GestionesUsuarios.exe
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\bin\Debug\net9.0\GestionesUsuarios.deps.json
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\bin\Debug\net9.0\GestionesUsuarios.runtimeconfig.json
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\bin\Debug\net9.0\GestionesUsuarios.dll
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\bin\Debug\net9.0\GestionesUsuarios.pdb
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.dll
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\refint\GestionesUsuarios.dll
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.pdb
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\GestionesUsuarios.genruntimeconfig.cache
+C:\Users\migue\Documents\GitHub\Fundamentos\Tarea2ºTrimestre\GestionesUsuarios\obj\Debug\net9.0\ref\GestionesUsuarios.dll

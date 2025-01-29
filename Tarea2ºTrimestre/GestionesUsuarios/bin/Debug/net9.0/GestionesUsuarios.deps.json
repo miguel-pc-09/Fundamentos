@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "GestionesUsuarios/1.0.0": {
+        "runtime": {
+          "GestionesUsuarios.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GestionesUsuarios/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
