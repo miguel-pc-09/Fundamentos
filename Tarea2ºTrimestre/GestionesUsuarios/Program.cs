@@ -26,13 +26,18 @@ public class Programa{
          }else{
             Console.WriteLine("Correo registrado");
          }
-
          //Pide contraseña 
          Console.WriteLine("Introduce tu contraseña: ");
          int contraseña = int.Parse(Console.ReadLine());
           
+          //Loguear usuario
+          Console.WriteLine("Para loguear introduce tu correo: ");
+          
+
+          
           // Registrar un entrenamiento: Pedir distancia recorrida y tiempo
           Console.WriteLine("Introduce la distancia recorrida: ");
+          double distancia = double.Parse(Console.ReadLine());
 
         
 
