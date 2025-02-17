@@ -1,2 +1,2 @@
 # Fundamentos
-repositorio destinado a realizar tareas de fundamentos
+repositorio destinado a C#
