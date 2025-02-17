@@ -9,41 +9,67 @@ public class AppEntreno
        
 
        Console.WriteLine("Bienvenido a tu app de entrenamiento");
-       //agenda.AgregarUsuario(Console.ReadLine(), Console.ReadLine());
-       //agenda.ObtenerUsuario(Console.ReadLine());
        
-       public void Menu()
-       {
-       Agenda agenda = new Agenda();
-
-            Console.WriteLine("¿Qué deseas hacer?: ");
+        Menu();
         
-            string opcion = Console.ReadLine()!;
-
-            //int opcion = Console.ReadLine();
-
-            switch (opcion)
+       
+    }
+            
+         static void Menu()
+        {
+            string opcion ;
+            Agenda agenda = new Agenda();
+            
+            do
             {
-                case "registrar":
-                    Console.WriteLine("1- Registrar Usuario");
-                    agenda.AgregarUsuario(Console.ReadLine(), Console.ReadLine());
+                Console.WriteLine("\nMenú ");
+                Console.WriteLine("1- Registrar Usuario");
+                Console.WriteLine("2- Iniciar Sesión");
+                Console.WriteLine("3- Salir");
+                Console.Write("¿Qué deseas hacer?: ");
+
+                opcion = Console.ReadLine();
+            
+             switch (opcion)
+             {
+                case "1":
+                    Console.WriteLine("Ingrese su correo: ");
+                    string correo = Console.ReadLine();
+                    Console.WriteLine("Ingrese su contraseña: ");
+                    string contraseña = Console.ReadLine();
+                    agenda.AgregarUsuario(correo, contraseña);
                     break;
-                case "iniciar":
-                    Console.WriteLine("2- Iniciar Sesión");
-                    agenda.ObtenerUsuario(Console.ReadLine());
+
+                case "2":
+                    Console.WriteLine("Ingrese su correo: ");
+                    string correoLogin = Console.ReadLine();
+                    agenda.IniciarSesion(correoLogin);
                     break;
-                case "salir":
-                    Console.WriteLine("3- Salir");
+
+                case "Salir":
+                    Console.WriteLine("Saliendo de la aplicación ");
+                    Console.WriteLine("Hasta luego ");
                     return;
+                    
                 default:
                     Console.WriteLine("Opción no válida.");
                     break;
-            }
+             }
+            }while(opcion != "Salir");
+        }
        
-       }
-       
-    }
 }
+
+        
+
+
+
+
+
+            
+       
+       
+    
        
 
       
