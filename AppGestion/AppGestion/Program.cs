@@ -46,7 +46,7 @@ public class AppEntreno
                     agenda.IniciarSesion(correoLogin);
                     break;
 
-                case "Salir":
+                case "3":
                     Console.WriteLine("Saliendo de la aplicación ");
                     Console.WriteLine("Hasta luego ");
                     return;
