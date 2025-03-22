@@ -31,8 +31,23 @@ class Entrada
 
         //Ejercicio 7 Permítase introducir el valor del radio de una circuferencia con valores entre 0 y 100. Obténgase la 
         // longitud de la circunferencia (2πr) y el área del circulo (πr2) .(Circunferencia) NOTA El valor de PI se obtiene con Math.PI
-        ejercicioSiete();
-        
+        //ejercicioSiete();
+
+        //Ejercicio 8 Hágase una aplicación que permita realizar conversiones de temperaturas entre grados 
+        // centígrados, farenheit y kelvin (los resultados se muestran redondeados a dos decimales). (Temperaturas)
+        //ejercicioOcho();
+
+        //Ejercicio 9 Hágase una aplicación que permita introducir el número de bebidas y bocadillos comprados
+        //  (valores entre 0 y 20). Además se podrá introducir el precio de cada bebida 
+        // (valor entre 0.00 € y 3.00 €) y de cada bocadillo (valor entre 0.00 € y 5.00 €).
+        //  También se podrá introducir el número de alumnos que realizaron la compra (valor entre 0 y 10). 
+        // Se mostrará el total de la compra (con el subtotal de las bebidas y de los bocadillos) y la cantidad que debe
+        //  pagar cada alumno redondeada a 2 decimales. (CosteBar)
+        //ejercicioNueve();
+
+        //Ejercicio 10 Se introducen los 5 dígitos de un número (decenas de mil, unidades de mil, centenas, decenas y unidades), 
+        // y se obtiene el número correspondiente. (Numero)
+        ejercicioDiez();
        
         }
         // Ejercicio 1 declarar constantes locales. nombre, direccion calle codigo postal pai
@@ -120,7 +135,7 @@ class Entrada
         }*/
 
         //Ejercicio 7
-        static void ejercicioSiete()
+        /*static void ejercicioSiete()
         {
             Console.WriteLine("Escribe un radio entero: ");
             int radioEntero = int.Parse(Console.ReadLine());
@@ -129,8 +144,40 @@ class Entrada
             double area = Math.PI*((double)radioEntero*(double)radioEntero);
             Console.WriteLine("La longitud del circulo es : "+longitud);
             Console.WriteLine("El area del ciruclo es : "+area);
-        }
+        }*/
 
+        //Ejercicio 8 Repasar
+        /*static void ejercicioOcho()
+        {
+            Console.WriteLine("Introduce los grados: ");
+            double temp = double.Parse(Console.ReadLine());
+            double gradosF = 5*(temp - 32)/9;
+            Console.WriteLine("farenheit: "+gradosF);
+            double gradosK = temp - 273.15;
+            double farenheitK = 9(temp - 273.15)/5+32;
+            double farengeitG = ((9*temp)/5)+32;
+
+        }*/
+
+        //Ejercicio 9 
+        // static void ejercicioNueve()
+        // {
+        //     Console.WriteLine("introduce....");
+        // Console.WriteLine("Decenas de mil: ");
+        // int decenaMil = int.Parse(Console.ReadLine());
+        // Console.WriteLine("Unidades de mil: ");
+        // int unidadMil = int.Parse(Console.ReadLine());
+        // Console.WriteLine("Centenas: ");
+        // int centenas = int.Parse(Console.ReadLine());
+        // Console.WriteLine("Decenas : ");
+        // int decenas = int.Parse(Console.ReadLine());
+        // Console.WriteLine("Unidades : ");
+        // int unidades = int.Parse(Console.ReadLine());
+        // Console.WriteLine("Numero introducido : "+decenaMil+unidadMil+centenas+decenas+unidades);
+        // }
+
+        //Ejercicio 10 
+        
 
 
 
