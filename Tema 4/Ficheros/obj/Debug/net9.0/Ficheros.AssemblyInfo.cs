@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ficheros")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fd1864e059db18ce59af6d9cd6e783742d96532")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cde4da14d1f6c009ce1e9ee5f3c4bfe8b98c2cf0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ficheros")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ficheros")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
