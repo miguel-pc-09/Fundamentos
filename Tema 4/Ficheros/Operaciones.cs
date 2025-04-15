@@ -72,8 +72,32 @@ class Operaciones
            // El cierre del flujo del filestream no es necesario, pero se puede poner
            fileStream.Close();
            // Ahora en el paso 11 iremos a program a ejecutar este metodo para escribir
-           
+       }
+
+       // 12º Lecutra. Para la tarea, si no tiene permisos nos dara error. Nadie nos obliga en Java en cambio si.
+       public void LeerFichero(String path)
+       {
+        FileStream fileStream = new FileStream(path, FileMode.Open); // En vez de abrir en modo append abriremos en modo OPEN: podemos tambien poner OpenOrCreate -> creara el archivo si no esta
+        // Creamos flujo de datos con el StreamReader -> esto lo que hace es, tu me acabas de abrir el fichero lo pondre en modo lectura
+        StreamReader streamReader = new StreamReader(fileStream);
+        // Ahora que tenemos el fichero en modo lectura lo que interesa es ir leyendo elemento a elemento 
+    //  String? linea = streamReader.ReadLine(); // leer de linea en linea. Nos pondra nulo porque seguira leyendo para eso metemos ? para que lo sepa 
+        String? linea = null;
+    //    Console.WriteLine(linea);
+        // Ahora en el paso 13 en program llamaremos al metodo para leer
+        // 14º para no tener que escribir 4 o 5 veces el string linea. Ejecutaremos while
+        while ((linea = streamReader.ReadLine()) != null)
+        {   //  para esto cambiaremos la linea del string diciendole si es nulo le diremos que mientras no sea nulo lo lea con streareader
+            Console.WriteLine(linea);
+        }
+        // Y cerramos flujos
+        streamReader.Close();
+        fileStream.Close();
+        
+        Console.WriteLine("fin del fichero");
+
        } 
+           
 
 
 
