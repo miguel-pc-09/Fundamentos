@@ -3,7 +3,7 @@
     public static void Main(string[] args){
         Console.WriteLine("Trabajo con ficheros");
         // llamamos a operaciones para llamar a obtener informacion 
-        Operaciones operaciones = new Operaciones();
+    //    Operaciones operaciones = new Operaciones();
         // Dentro () meteremos el path del fichero que antes cogimos Al ser Windows utilizar un @ y despues "path"
      //   operaciones.Obtenerinfirmacion(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tema 4\Ficheros\informacion.txt");
         //2º Vamos a Operaciones a crear el obtener informacion con el console
@@ -20,8 +20,13 @@
         // Paso 12 en operaciones ahora nos ponemos con la lectura
 
         // Paso 13º llamamos al metodo de leer
-        operaciones.LeerFichero(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tema 4\Ficheros\escritura.txt");
+    //    operaciones.LeerFichero(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tema 4\Ficheros\escritura.txt");
         // En la primera ejecucion solo nos sacara la primera linea en este caso el Hola, pero le quedan por sacar el resto. Paso 14 en OPERACIONES
-        // Aunque añadamos mas lineas entrara por el while 
+        // Aunque añadamos mas lineas entrara por el while  
+
+        // Paso 21º Crearemos la lista con Operaciones, es la misma que esta arriba pero lo pongo aqui tambien para seguir los pasos
+        Operaciones operaciones = new Operaciones(); // con esto estamos creando la lista que esta en la clase operaciones List<Usuario>.
+        // Ahora llamaremos al metodo de exportar y guardaremos en otro sitio que se llame Usuarios.txt
+        operaciones.ExportarUsuarios(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tema 4\Ficheros\usuarios.txt");
     }
 }

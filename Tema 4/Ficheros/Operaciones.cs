@@ -1,7 +1,25 @@
+using System.Runtime.InteropServices.Marshalling;
 using System.Security.Cryptography.X509Certificates;
 
 class Operaciones
 {
+    // PASO 17 CREACION DEL METODO DE EXPORTAR(PASO 19 ABAJO), primero creamos una variable de tipo list. y la inicializamos aqui
+    private List<Usuario> listaUsuarios;
+
+    public Operaciones()
+    {
+        // 18º Creamos los usuarios aqui 
+        listaUsuarios = new List<Usuario>();
+        listaUsuarios.Add(new Usuario("miguel1","Perucha1","pmiguel@gmail.com1",123456789));
+        listaUsuarios.Add(new Usuario("miguel2","Perucha2","pmiguel@gmail.com2",123456789));
+        listaUsuarios.Add(new Usuario("miguel3","Perucha3","pmiguel@gmail.com3",123456789));
+        listaUsuarios.Add(new Usuario("miguel4","Perucha4","pmiguel@gmail.com4",123456789));
+        listaUsuarios.Add(new Usuario("miguel5","Perucha5","pmiguel@gmail.com5",123456789));
+        listaUsuarios.Add(new Usuario("miguel6","Perucha6","pmiguel@gmail.com6",123456789));
+        listaUsuarios.Add(new Usuario("miguel7","Perucha7","pmiguel@gmail.com7",123456789));
+        listaUsuarios.Add(new Usuario("miguel8","Perucha8","pmiguel@gmail.com8",123456789));
+    }
+
     // Metodo para obtener informacion de un fichero
     public void Obtenerinfirmacion(String path)
     {
@@ -77,28 +95,130 @@ class Operaciones
        // 12º Lecutra. Para la tarea, si no tiene permisos nos dara error. Nadie nos obliga en Java en cambio si.
        public void LeerFichero(String path)
        {
-        FileStream fileStream = new FileStream(path, FileMode.Open); // En vez de abrir en modo append abriremos en modo OPEN: podemos tambien poner OpenOrCreate -> creara el archivo si no esta
+    //    FileStream fileStream = new FileStream(path, FileMode.Open); // En vez de abrir en modo append abriremos en modo OPEN: podemos tambien poner OpenOrCreate -> creara el archivo si no esta
         // Creamos flujo de datos con el StreamReader -> esto lo que hace es, tu me acabas de abrir el fichero lo pondre en modo lectura
-        StreamReader streamReader = new StreamReader(fileStream);
-        // Ahora que tenemos el fichero en modo lectura lo que interesa es ir leyendo elemento a elemento 
-    //  String? linea = streamReader.ReadLine(); // leer de linea en linea. Nos pondra nulo porque seguira leyendo para eso metemos ? para que lo sepa 
+    //    StreamReader streamReader = new StreamReader(fileStream);
+
+        // 14º Con un Try Cath
+        FileStream? fileStream = null; // Porque lo igualamos a nulo, para luego poder cerrarlo
+        StreamReader? streamReader = null; // Lo mismo con Streamreader
+        try
+        {// 1º los inicializamos 
+        fileStream = new FileStream(path, FileMode.Open);
+        streamReader = new StreamReader(fileStream);
+        // Copiamos lo de abajo
         String? linea = null;
     //    Console.WriteLine(linea);
-        // Ahora en el paso 13 en program llamaremos al metodo para leer
-        // 14º para no tener que escribir 4 o 5 veces el string linea. Ejecutaremos while
         while ((linea = streamReader.ReadLine()) != null)
         {   //  para esto cambiaremos la linea del string diciendole si es nulo le diremos que mientras no sea nulo lo lea con streareader
             Console.WriteLine(linea);
         }
+
+        }
+        catch(FileNotFoundException e)
+        {  // Capturamos el error 
+        Console.WriteLine("El fichero no existe");
+        Console.WriteLine(e.Message); // Para los warnig igual que el siguiente de abajo
+        }
+        catch(IOException e)
+        {  // No tengo permisos no puedo leer. Capturamos 
+        Console.WriteLine("Error de entrada/salida");
+        Console.WriteLine(e.Message); // Ponemos esto para quitarnos el fallo o posible fallo 
+        }
+        catch(Exception e)
+        {  // Caputura generica, cuidado porque con esta capturamos pero no sabemos el que. 
+        Console.WriteLine("Error: "+e.Message);
+        }
+        finally
+        { // Despues en el finali metemos los cierres y para que no den errores metemos ? para quitarnos el nullpointerexception
+            try // Para quitarnos el IO de ambos
+            {
+                streamReader?.Close();
+                fileStream?.Close();
+
+            }catch (Exception e)
+            {
+                Console.WriteLine("Error al cerrar el fichero: "+ e.Message);
+            }
+         
+        }
+
+
+
+
+        // Ahora que tenemos el fichero en modo lectura lo que interesa es ir leyendo elemento a elemento 
+    //  String? linea = streamReader.ReadLine(); // leer de linea en linea. Nos pondra nulo porque seguira leyendo para eso metemos ? para que lo sepa 
+     //   String? linea = null;
+    //    Console.WriteLine(linea);
+        // Ahora en el paso 13 en program llamaremos al metodo para leer
+        // 14º para no tener que escribir 4 o 5 veces el string linea. Ejecutaremos while
+     //   while ((linea = streamReader.ReadLine()) != null)
+     //   {   //  para esto cambiaremos la linea del string diciendole si es nulo le diremos que mientras no sea nulo lo lea con streareader
+       //     Console.WriteLine(linea);
+      //  }
         // Y cerramos flujos
-        streamReader.Close();
-        fileStream.Close();
-        
+      //  streamReader.Close();
+      //  fileStream.Close();
+        // PROBLEMAS que me puede dar esto. NADIE me a dicho de capturar errores. Para esto comentaremos los dos flujos de arriba FILE y Streamreader y pondremos otra cosa 14
         Console.WriteLine("fin del fichero");
 
        } 
            
+    // 19º Metodo para exportar los datos, los meteremos de golpe añadiendo un path
+    public void ExportarUsuarios(String path){
 
+       if(!File.Exists(path))
+       { 
+           File.Create(path);
+       }
+       
+       
+       
+        //1º Creamos el filestream en modo append y el streamwriter, pero podiamos por arriba de estos meter un if y file y steram igualamos a null.
+        FileStream? fileStream = null;
+        // new FileStream(path, FileMode.Append);
+        StreamWriter? streamWriter = null;
+        //new StreamWriter(fileStream);
 
+        // Como sabemos que posiblemente de fallos hacemos el try catch
+        try
+        { 
+            // Despues de poner los posibles errores crearemos la escritura, en modo append
+            fileStream = new FileStream(path, FileMode.Append);
+            streamWriter = new StreamWriter(fileStream);
 
-}
+            // Ahora queremos sacar cada uno de los usuarios con el foreach
+            foreach (var item in listaUsuarios)
+            {
+                // Como ya tenemos el flujo de escritura y como item es de tipo usuario y tenemos un metodo de exportar lo podemos meter
+                streamWriter.WriteLine(item.ExportarDato()); // Exportar() es un metodo de la clase usuario
+            }
+            
+        }
+        catch (FileNotFoundException e) // Error del fichero
+        {
+            Console.WriteLine("El fichero no existe");
+            Console.WriteLine(e.Message);
+        }
+        catch (IOException e) // Error escritura
+        {
+            Console.WriteLine("Error de entrada/salida");
+            Console.WriteLine(e.Message);
+        } 
+        finally                                                  // Paso 21 ahora en program en el main seguimos
+        {
+            try
+            {
+               streamWriter?.Close(); // Cerramos el flujo de datos
+               fileStream?.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error al cerrar el fichero: "+ e.Message); // Error en el cerrado
+            }
+        }
+    }
+    // 20º Metodo para importar los datos
+        }
+    
+
