@@ -5,7 +5,7 @@
 
         Console.WriteLine("Bienvenido a tu gestor de tareas");
         
-
+        
         while (true)
         {
             Console.WriteLine("Menú del programa");
@@ -27,25 +27,32 @@
 
             if(opcion >= 1 && opcion <= 5)
             {
+                // Mediante menu switch
                 switch(opcion)
                 {
+                    // 1º Crear Tarea : Pedira -> nombre, descripcion, tipo y prioridad
                     case 1:
                     
                     break;
 
+                    // 2º Buscar Tarea : Pedir -> tipo de tarea y  se mostrara todas las tareas
                     case 2:
                     break;
 
+                    // 3º Eliminar tarea : pedira -> un id, y se eliminara la tarea con el id indicado
                     case 3:
                     break;
 
+                    // 4º Exportar tareas: se genera fichero llamado tareas.txt con inf de tdas las tareas,
+                         // Cada fila mostrara -> ID, nombre, descripcion, tipo y prioridad
                     case 4:
                     break;
-
+                    // 5º Importar tareas : Guardara en la lista que gestiona la app las tareas ubicadas en el fichero tareas.txt
                     case 5:
                     break;
 
                     case 6:
+                    
                     break;
                 }
 
@@ -55,29 +62,6 @@
             }
         }
 
-
-// Mediante menu switch
-    // 1º Crear Tarea : Pedira -> nombre, descripcion, tipo y prioridad
-
-    // 2º Buscar Tarea : Pedir -> tipo de tarea y  se mostrara todas las tareas
-
-    // 3º Eliminar tarea : pedira -> un id, y se eliminara la tarea con el id indicado
-
-    // 4º Exportar tareas: se genera fichero llamado tareas.txt con inf de tdas las tareas,
-                // Cada fila mostrara -> ID, nombre, descripcion, tipo y prioridad
-
-    // 5º Importar tareas : Guardara en la lista que gestiona la app las tareas ubicadas en el fichero tareas.txt
-
-
-
-      // ** Tareas consideraciones 
-          // -> Id asignara automaticamente y sera unico para cada tarea 
-
-          // -> El tipo tan solo podra ser alguno de los siguientes: persona, trabajo, ocio. Necesario utilizar Enum
-          // Enum -> Clase con datos fijos. Objetos que ya estan cargados y solo puedo utilizar esos datos
-              // jugador -> Constructor, Defensivo, Agresivo, Investigador -> Carpeta Utils
-
-          // -> La prioridad sera un booleano 
-
+          
     }
 }

@@ -1,12 +1,12 @@
+// ** Tareas consideraciones 
+          // -> Id asignara automaticamente y sera unico para cada tarea
 public class Tarea
 {
-    private Tipo tipo;
-    private string? nombre;
-    private string? descripcion;
-    private boolean prioridad;
+    public Tipo tipo {get; set;}
+    public string? nombre {get; set;}
+    public string? descripcion {get; set;}
+    public bool prioridad {get; set;}
 
-    // Crear una List<>?
-    public List<Tarea> listaTarea;
 
     // Constructor vacio
     public Tarea (){}
@@ -19,4 +19,11 @@ public class Tarea
         this.tipo=tipo;
         this.prioridad=prioridad;
     }
+
+    public string ExportarDato()
+    {
+        return nombre + "," + descripcion + "," + tipo + "," + prioridad;
+    }
+
+    
 }
