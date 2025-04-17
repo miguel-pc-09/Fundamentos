@@ -28,5 +28,8 @@
         Operaciones operaciones = new Operaciones(); // con esto estamos creando la lista que esta en la clase operaciones List<Usuario>.
         // Ahora llamaremos al metodo de exportar y guardaremos en otro sitio que se llame Usuarios.txt
         operaciones.ExportarUsuarios(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tema 4\Ficheros\usuarios.txt");
+        // como tenemos el modo append primero nos dara el aviso de error y en la segunda vez ya guardara los usuarios. Para esto tambien podemos usar el OpenOrCreate si lo crea y no daria el error
+
+        // Ahora quiero coger los usuarios y importarlos pista ** fijarnos en la coma
     }
 }
