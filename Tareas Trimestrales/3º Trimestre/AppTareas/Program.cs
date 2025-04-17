@@ -4,6 +4,7 @@
 
 
         Console.WriteLine("Bienvenido a tu gestor de tareas");
+        
 
         while (true)
         {
@@ -13,7 +14,7 @@
             Console.WriteLine("3. Eliminar Tarea. ");
             Console.WriteLine("4. Exportar Tareas. ");
             Console.WriteLine("5. Importar Tareas. ");
-            Console.WriteLine("6. Salir.");
+            Console.WriteLine("6. Salir.");                // Funciona
             Console.WriteLine("Que quieres hacer, elige una opción");
 
             int opcion = int.Parse(Console.ReadLine());
@@ -29,6 +30,7 @@
                 switch(opcion)
                 {
                     case 1:
+                    
                     break;
 
                     case 2:
@@ -49,7 +51,7 @@
 
             }else
             {
-                Console.WriteLine("Opcion no valida, vuelve a elegir una opcion.");
+                Console.WriteLine("Opcion no valida, vuelve a elegir una opcion."); // Funciona 
             }
         }
 
