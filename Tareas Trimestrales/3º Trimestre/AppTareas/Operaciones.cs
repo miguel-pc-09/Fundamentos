@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 class Operaciones
 {
     private List<Tarea> listaTareas;
@@ -7,8 +9,8 @@ class Operaciones
         listaTareas = new List<Tarea>();
         
     }
-
-    public void CrearTarea()
+    // Crear Tarea
+    public void CrearTarea(string path)
     {
         Console.WriteLine("Nombre: ");
         string? nombre = Console.ReadLine();
@@ -19,12 +21,19 @@ class Operaciones
         Console.WriteLine("Tipo (persona, trabajo o ocio): ");
         Tipo tipo = Enum.Parse<Tipo>(Console.ReadLine().ToLower());
 
-        Console.WriteLine("Prioridad: ");
+        Console.WriteLine("Prioridad, recuerda indicar True o False: ");
         bool prioridad = bool.Parse(Console.ReadLine());
 
         Tarea tarea = new Tarea(nombre, descripcion, tipo, prioridad);
         listaTareas.Add(tarea);
-        Console.WriteLine("Tarea creada.");
+        
+        FileStream fileStream = new FileStream(path, FileMode.Append);
+        StreamWriter streamWriter = new StreamWriter(fileStream);
+
+        streamWriter.WriteLine(tarea.ExportarDato());
+
+        streamWriter.Close();
+        fileStream.Close();
 
     }
 
@@ -47,6 +56,50 @@ class Operaciones
             Console.WriteLine("Tamaño: "+ fileInfo.Length); 
             Console.WriteLine("Nombre del fichero: "+ fileInfo.Name); 
             Console.WriteLine("Directorio: "+ fileInfo.DirectoryName);
+        }
+    }
+
+    // metodo para leer lo que contiene el fichero
+    public void LeerFichero(String path)
+    {
+        FileStream? fileStream = null;
+        StreamReader? streamReader = null;
+        try
+        {
+            fileStream = new FileStream(path, FileMode.Open);
+            streamReader = new StreamReader(fileStream);
+
+            String? linea = null;
+            while((linea = streamReader.ReadLine()) != null)
+            {
+                Console.WriteLine(linea);
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            Console.WriteLine("El fichero no existe");
+            Console.WriteLine(e.Message);
+        }
+        catch(IOException e)
+        {
+            Console.WriteLine("Error de entrada/salida");
+             Console.WriteLine(e.Message);
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine("Error: "+ e.Message);
+        }
+        finally
+        {
+            try
+            {
+                streamReader?.Close();
+                fileStream?.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Error al cerrar el fichero: "+ e.Message);
+            }
         }
     }
 

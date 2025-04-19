@@ -11,8 +11,8 @@
         while (true)
         {
             Console.WriteLine("Menú del programa");
-            Console.WriteLine("1. Crear Tarea. ");
-            Console.WriteLine("2. Buscar Tarea. ");
+            Console.WriteLine("1. Crear Tarea. ");  // Funciona
+            Console.WriteLine("2. Buscar Tarea. ");  // Funciona
             Console.WriteLine("3. Eliminar Tarea. ");
             Console.WriteLine("4. Exportar Tareas. ");
             Console.WriteLine("5. Importar Tareas. ");
@@ -35,14 +35,15 @@
                     // 1º Crear Tarea : Pedira -> nombre, descripcion, tipo y prioridad
                     case 1:
 
-                    Console.WriteLine("Rellene los datos con su nombre, descripcion, tipo(persona, trabajo u ocio) y prioridad.\nA continuacion pulse enter y los datos se guardaran ");
-                    operaciones.CrearTarea();
+                    Console.WriteLine("Rellene los datos con su nombre, descripcion, tipo(persona, trabajo u ocio) y prioridad(True o Flase).\nA continuacion pulse enter y los datos se guardaran ");
+                    operaciones.CrearTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
                     
                     break;
 
                     // 2º Buscar Tarea : Pedir -> tipo de tarea y  se mostrara todas las tareas
                     case 2:
                     operaciones.ObtenerInformacion(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
+                    operaciones.LeerFichero(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
                     break;
 
                     // 3º Eliminar tarea : pedira -> un id, y se eliminara la tarea con el id indicado
