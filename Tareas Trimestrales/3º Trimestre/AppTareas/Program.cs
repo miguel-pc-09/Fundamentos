@@ -14,7 +14,7 @@
             Console.WriteLine("1. Crear Tarea. ");  // Funciona
             Console.WriteLine("2. Buscar Tarea. ");  // Funciona
             Console.WriteLine("3. Eliminar Tarea. ");
-            Console.WriteLine("4. Exportar Tareas. ");
+            Console.WriteLine("4. Exportar Tareas. "); // Funciona
             Console.WriteLine("5. Importar Tareas. ");
             Console.WriteLine("6. Salir.");                // Funciona
             Console.WriteLine("Que quieres hacer, elige una opción");
@@ -53,7 +53,8 @@
                     // 4º Exportar tareas: se genera fichero llamado tareas.txt con inf de tdas las tareas,
                          // Cada fila mostrara -> ID, nombre, descripcion, tipo y prioridad
                     case 4:
-                    operaciones.ExportarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
+                    // cambiar el final de la ruta para ver si crea otro fichero
+                    operaciones.ExportarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareasPrueba2.txt");
                     
                     break;
                     // 5º Importar tareas : Guardara en la lista que gestiona la app las tareas ubicadas en el fichero tareas.txt
