@@ -20,13 +20,13 @@ class Operaciones
         Console.WriteLine("Descripcion: ");
         string? descripcion = Console.ReadLine();
 
-        Console.WriteLine("Tipo (persona, trabajo o ocio): ");
-        string entrada = Console.ReadLine();
+        Console.WriteLine("Tipo (personal, trabajo o ocio): ");
+        string? entrada = Console.ReadLine();
         Tipo tipo;
         bool tValido = Enum.TryParse<Tipo>(entrada, ignoreCase: true, out tipo);
         if(!tValido)
         {
-            Console.WriteLine("No valido, solo: persona, trabajo o ocio");
+            Console.WriteLine("No valido, solo: personal, trabajo o ocio");
             return;
         }
 
@@ -35,23 +35,38 @@ class Operaciones
 
         Tarea tarea = new Tarea(nombre, descripcion, tipo, prioridad);
         listaTareas.Add(tarea);
+        try
+        {
+            FileStream fileStream = new FileStream(path, FileMode.Append);
+            StreamWriter streamWriter = new StreamWriter(fileStream);
+            
+            streamWriter.WriteLine(tarea.ExportarDato());
+            
+            streamWriter.Close();
+            fileStream.Close();
+
+            Console.WriteLine("Tarea creada correctamente. ");
+        }
+        catch(FileNotFoundException e)
+        {
+            Console.WriteLine("Archivo no encontrado al intentar escribir.");
+            Console.WriteLine(e.Message);
+        }
+        catch(IOException e)
+        {
+            Console.WriteLine("Error entrada/salida escribir el archivo. ");
+            Console.WriteLine(e.Message);
+        }
         
-        FileStream fileStream = new FileStream(path, FileMode.Append);
-        StreamWriter streamWriter = new StreamWriter(fileStream);
-
-        streamWriter.WriteLine(tarea.ExportarDato());
-
-        streamWriter.Close();
-        fileStream.Close();
-
-        Console.WriteLine("Tarea creada correctamente. ");
-
     }
 
     // Obtener la informacion 
     public void ObtenerInformacion(String path)
     {
-        Console.WriteLine("Obteniendo fichero: "+path);
+        Console.WriteLine("Obteniendo fichero: " + path);
+        try
+        {
+
         if (!File.Exists(path))// Si no existe
         {
             File.Create(path); // creas
@@ -64,10 +79,17 @@ class Operaciones
             Console.WriteLine("Last Access Time: "+ fileInfo.LastAccessTime);
             Console.WriteLine("Atributo: "+ fileInfo.Attributes);
             Console.WriteLine("Tamaño: "+ fileInfo.Length);
-            Console.WriteLine("Tamaño: "+ fileInfo.Length); 
             Console.WriteLine("Nombre del fichero: "+ fileInfo.Name); 
             Console.WriteLine("Directorio: "+ fileInfo.DirectoryName);
         }
+        }
+        catch(IOException e)
+        {
+            Console.WriteLine("Error de entrada/salida al obtener información.");
+            Console.WriteLine(e.Message);
+        }
+
+             
     }
 
     // metodo para leer lo que contiene el fichero
@@ -151,7 +173,7 @@ class Operaciones
                 streamWriter?.Close();
                 fileStream?.Close();
             }
-            catch(Exception e)
+            catch(IOException e)
             {
                 Console.WriteLine("Error al cerrar el fichero: "+ e.Message);
             }
@@ -184,17 +206,27 @@ class Operaciones
         {
             listaTareas.Remove(tareaEliminar); // Si lista tarea es distinta de null, le decimos que de listatareas borre (tareaeliminar)
 
-            // despues ¿Tenemos que sobrescribir?
-            FileStream fileStream = new FileStream(path, FileMode.Create);
-            StreamWriter streamWriter = new StreamWriter (fileStream);
-
-            foreach (Tarea item in listaTareas)
+            try
             {
-                streamWriter.WriteLine(item.ExportarDato()); 
-            }
+                FileStream fileStream = new FileStream(path, FileMode.Create);
+                StreamWriter streamWriter = new StreamWriter (fileStream);
 
-            fileStream.Close();
-            streamWriter.Close();
+                foreach (Tarea item in listaTareas)
+                {
+                    streamWriter.WriteLine(item.ExportarDato());
+                }
+
+                streamWriter.Close();
+                fileStream.Close();
+
+                Console.WriteLine("Tarea eliminada correctamente.");
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine("Error al eliminar la tarea y reescribir el fichero.");
+                Console.WriteLine(e.Message);
+                
+            }
         }
         else
         {
@@ -211,8 +243,14 @@ class Operaciones
             Console.WriteLine("No se puede importar, el fichero no existe.");
             return;
         }
-        // leo todas las lineas del fichero y lo guardo en un array 
-        string[] lineas = File.ReadAllLines(path);
+
+        listaTareas.Clear();// Borra contenido en memoria
+
+         try
+         {
+            // leo todas las lineas del fichero y lo guardo en un array 
+            string[] lineas = File.ReadAllLines(path);
+
         // foreach para recorrer cada linea del fichero     
         foreach (string linea in lineas)
         {   // Separacion de la linea en partes usando la coma 
@@ -232,10 +270,22 @@ class Operaciones
                 Tarea tarea = new Tarea(id, nombre, descripcion, tipo, prioridad);
                 listaTareas.Add(tarea);
             }
+         }
         }
+        catch (IOException e)
+    {
+        Console.WriteLine("Error de entrada/salida al leer el fichero.");
+        Console.WriteLine(e.Message);
+    }
+    catch (FormatException e)
+    {
+        Console.WriteLine("Error de formato en los datos del fichero.");
+        Console.WriteLine(e.Message);
+        
 
                 
 
 
     }
-}
+    }
+    }

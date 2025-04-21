@@ -39,7 +39,7 @@
                     // 1º Crear Tarea : Pedira -> nombre, descripcion, tipo y prioridad
                     case 1:
 
-                    Console.WriteLine("Rellene los datos con su nombre, descripcion, tipo(persona, trabajo u ocio) y prioridad(True o Flase).\nA continuacion pulse enter y los datos se guardaran ");
+                    Console.WriteLine("Rellene los datos con su nombre, descripcion, tipo(personal, trabajo u ocio) y prioridad(True o Flase).\nA continuacion pulse enter y los datos se guardaran ");
                     operaciones.CrearTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
                     
                     break;
@@ -59,7 +59,7 @@
                          // Cada fila mostrara -> ID, nombre, descripcion, tipo y prioridad
                     case 4:
                     // cambiar el final de la ruta para ver si crea otro fichero
-                    operaciones.ExportarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareasPrueba2.txt");
+                    operaciones.ExportarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
                     break;
                     
                     // 5º Importar tareas : Guardara en la lista que gestiona la app las tareas ubicadas en el fichero tareas.txt

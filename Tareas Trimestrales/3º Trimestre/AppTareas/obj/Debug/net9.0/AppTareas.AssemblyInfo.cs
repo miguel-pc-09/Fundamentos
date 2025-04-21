@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppTareas")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a7e3afeae2f51767ba9311b72d8e0cff84eb112")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e768c59ff847995457ef364562f94c2cb560c13")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppTareas")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppTareas")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,27 @@
+1,jardin,podar jardin,persona,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
+1,jardin,podar jardin,persona,True
+2,compra,comprar alimentos,trabajo,True
+3,bolos,ir a jugar a los bolos,ocio,False
