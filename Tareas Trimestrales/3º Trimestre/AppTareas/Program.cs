@@ -17,9 +17,9 @@
             Console.WriteLine("-----------------");
             Console.WriteLine("1. Crear Tarea. ");  // Funciona
             Console.WriteLine("2. Buscar Tarea. ");  // Funciona
-            Console.WriteLine("3. Eliminar Tarea. ");
+            Console.WriteLine("3. Eliminar Tarea. "); // Funciona
             Console.WriteLine("4. Exportar Tareas. "); // Funciona
-            Console.WriteLine("5. Importar Tareas. ");
+            Console.WriteLine("5. Importar Tareas. "); // Funciona
             Console.WriteLine("6. Salir.");                // Funciona
             Console.WriteLine("Que quieres hacer, elige una opción");
 
