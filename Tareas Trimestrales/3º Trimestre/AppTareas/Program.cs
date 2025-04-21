@@ -5,12 +5,16 @@
 
         Operaciones operaciones = new Operaciones ();
 
+        Console.WriteLine("--------------------------------");
         Console.WriteLine("Bienvenido a tu gestor de tareas");
+        Console.WriteLine("--------------------------------");
         
         
         while (true)
         {
+            Console.WriteLine("");
             Console.WriteLine("Menú del programa");
+            Console.WriteLine("-----------------");
             Console.WriteLine("1. Crear Tarea. ");  // Funciona
             Console.WriteLine("2. Buscar Tarea. ");  // Funciona
             Console.WriteLine("3. Eliminar Tarea. ");
@@ -48,6 +52,7 @@
 
                     // 3º Eliminar tarea : pedira -> un id, y se eliminara la tarea con el id indicado
                     case 3:
+                    operaciones.EliminarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
                     break;
 
                     // 4º Exportar tareas: se genera fichero llamado tareas.txt con inf de tdas las tareas,
@@ -55,18 +60,16 @@
                     case 4:
                     // cambiar el final de la ruta para ver si crea otro fichero
                     operaciones.ExportarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareasPrueba2.txt");
-                    
                     break;
+                    
                     // 5º Importar tareas : Guardara en la lista que gestiona la app las tareas ubicadas en el fichero tareas.txt
                     case 5:
+                    operaciones.ImportarTarea(@"C:\Users\migue\Documents\GitHub\Fundamentos\Tareas Trimestrales\3º Trimestre\AppTareas\tareas.txt");
                     break;
 
                     case 6:
                     Console.WriteLine("Hasta pronto");
                     return;
-                    
-                   
-                    
                 }
 
             }else
@@ -78,3 +81,6 @@
           
     }
 }
+                    
+                   
+                    

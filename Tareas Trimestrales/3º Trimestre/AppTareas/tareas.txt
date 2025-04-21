@@ -1,3 +1,0 @@
-1,jardin,tengo que podar el muro ,persona,True
-2,fundamentos,tengo que terminar la tarea evaluable,trabajo,False
-1,Lenguaje de marcas,Revisar la tarea y si todo esta correcto mandarla,trabajo,True

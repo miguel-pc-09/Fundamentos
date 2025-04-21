@@ -2,8 +2,10 @@ using System.Linq.Expressions;
 
 class Operaciones
 {
+    // Lista de las tareas 
     private List<Tarea> listaTareas;
 
+    // Constructor para crear la lista vacia
     public  Operaciones()
     {
         listaTareas = new List<Tarea>();
@@ -19,7 +21,14 @@ class Operaciones
         string? descripcion = Console.ReadLine();
 
         Console.WriteLine("Tipo (persona, trabajo o ocio): ");
-        Tipo tipo = Enum.Parse<Tipo>(Console.ReadLine().ToLower());
+        string entrada = Console.ReadLine();
+        Tipo tipo;
+        bool tValido = Enum.TryParse<Tipo>(entrada, ignoreCase: true, out tipo);
+        if(!tValido)
+        {
+            Console.WriteLine("No valido, solo: persona, trabajo o ocio");
+            return;
+        }
 
         Console.WriteLine("Prioridad, recuerda indicar True o False: ");
         bool prioridad = bool.Parse(Console.ReadLine());
@@ -34,6 +43,8 @@ class Operaciones
 
         streamWriter.Close();
         fileStream.Close();
+
+        Console.WriteLine("Tarea creada correctamente. ");
 
     }
 
@@ -103,11 +114,12 @@ class Operaciones
         }
     }
 
+     // metodo para exportar tarea
     public void ExportarTarea(string path)
     {
         if(!File.Exists(path))
         {
-            File.Create(path);
+            File.Create(path).Close();
         }
         FileStream? fileStream = null;
         StreamWriter? streamWriter = null;
@@ -146,5 +158,84 @@ class Operaciones
         }
 
             
+    }
+
+    // Metodo para eliminar tarea
+    public void EliminarTarea(String path)
+    {
+        // importamos las tareas 
+        ImportarTarea(path);
+
+        Console.WriteLine("Que tarea desea eliminar. Indique su ID: ");
+        int identificador = int.Parse(Console.ReadLine());
+
+        Tarea? tareaEliminar = null;
+
+        foreach (var tarea in listaTareas)
+        {
+            if(tarea.identificador == identificador)
+            {
+                tareaEliminar = tarea;
+                break;
+            }
+        }
+
+        if(tareaEliminar != null)
+        {
+            listaTareas.Remove(tareaEliminar); // Si lista tarea es distinta de null, le decimos que de listatareas borre (tareaeliminar)
+
+            // despues ¿Tenemos que sobrescribir?
+            FileStream fileStream = new FileStream(path, FileMode.Create);
+            StreamWriter streamWriter = new StreamWriter (fileStream);
+
+            foreach (Tarea item in listaTareas)
+            {
+                streamWriter.WriteLine(item.ExportarDato()); 
+            }
+
+            fileStream.Close();
+            streamWriter.Close();
+        }
+        else
+        {
+            Console.WriteLine("No se encontro el ID de la tarea.");
+        }
+
+    }
+
+    // Metodo para importar tarea
+    public void ImportarTarea(string path)
+    {
+        if(!File.Exists(path))
+        {
+            Console.WriteLine("No se puede importar, el fichero no existe.");
+            return;
+        }
+        // leo todas las lineas del fichero y lo guardo en un array 
+        string[] lineas = File.ReadAllLines(path);
+        // foreach para recorrer cada linea del fichero     
+        foreach (string linea in lineas)
+        {   // Separacion de la linea en partes usando la coma 
+            string[] parte = linea.Split(',');
+
+            // Verifico que cada linea contenga el numero de partes que corresponde
+            if(parte.Length == 5)
+            {
+                // y aqui asigno cada parte 
+                int id = int.Parse(parte[0]);  // id en la primera posicion 
+                string nombre = parte [1];     // nombre en la segunda
+                string descripcion = parte [2]; // descripcion
+                Tipo tipo = Enum.Parse<Tipo>(parte[3]); // los tipos 
+                bool prioridad = bool.Parse(parte[4]); // el bool 
+
+                // creo una nueva tarea
+                Tarea tarea = new Tarea(id, nombre, descripcion, tipo, prioridad);
+                listaTareas.Add(tarea);
+            }
+        }
+
+                
+
+
     }
 }

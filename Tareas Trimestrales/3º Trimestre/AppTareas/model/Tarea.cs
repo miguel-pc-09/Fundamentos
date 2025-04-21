@@ -16,10 +16,20 @@ class Tarea
     // Constructor vacio
     public Tarea (){}
 
-    // Constructor con todo
+    // Constructor con todo para las tareas
     public Tarea(string nombre, string descripcion, Tipo tipo, bool prioridad)
     {
         identificador = contador++;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.tipo = tipo;
+        this.prioridad = prioridad;
+    }
+
+    //Constructor para importar las tareas 
+    public Tarea(int id, string nombre, string descripcion, Tipo tipo, bool prioridad)
+    {
+        this.identificador = id; // Usa el ID leído desde el fichero
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
