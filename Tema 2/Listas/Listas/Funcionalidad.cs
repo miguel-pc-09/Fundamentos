@@ -60,6 +60,14 @@ public class Funcionalidad
             Console.WriteLine($"elemento encontrado {elemento}");
         }
     }
+    // Sacar Todos
+    public void ObtenerTodos()
+    {
+        for (int i = 0; i < listaPalabras.Count; i++)
+        {
+            Console.WriteLine($"El elemento de la posicion {i} es {listaPalabras.ElementAt(i)}");
+        }
+    }
     private void InformacionLista()
     {
         // Count -> cuantos elementos tiene la lista

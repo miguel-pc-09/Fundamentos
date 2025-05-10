@@ -1,4 +1,6 @@
-﻿public class MyClass
+﻿using System;
+
+public class MyClass
 {
     public static void Main(string[] args)
     {
@@ -38,6 +40,7 @@
      }
      funcionalidad.ObtenerElemento(0);
 
+    
 
        /* funcionalidad.AgregarElemento("Adios");
         funcionalidad.AgregarElemento("que");
