@@ -30,5 +30,13 @@
 
         
         Console.WriteLine(palabraGenerada);
+        palabraGenerada = "Esto es un ejemplo";
+        // Split no separa como esta ahora 
+        palabraGenerada.Split(" "); // [Esto, es, un, ejemplo]
+        palabraGenerada.Split("s"); // [E,sto, e,s, un, ejemplo]
+        // ovy a cortar por @ , me quedo con la parte derecha [1](la izquierda es 0), y del arroba quito el . y me quedo con la [0]-> es decir el gmail
+        //palabraGenerada.Split("@")[1].Split(".")[0]; // [correo@ gmail .com]
+        string[] corte = palabraGenerada.Split("@");
+
     }
 }
