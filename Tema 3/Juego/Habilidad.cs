@@ -1,4 +1,4 @@
-class Habilidad 
+public class Habilidad 
 {
     private string? nombre;
     private int potenciador;
