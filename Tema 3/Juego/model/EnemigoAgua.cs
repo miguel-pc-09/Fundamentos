@@ -6,7 +6,7 @@ class EnemigoAgua : Enemigo, Mortal
     public string poderAgua {get; set;}
 
     // nombre, nivel, vida
-    public EnemigoAgua (string nombre, int vida, int nivel, int nivelAgua, string poderAgua):base(nombre, vida, nivel)
+    public EnemigoAgua (string nombre, int vida, int nivel,Perfil perfil, int nivelAgua, string poderAgua):base(nombre, vida, nivel,perfil)
     {
         this.nivelAgua = nivelAgua;
         this.poderAgua = poderAgua;
@@ -22,7 +22,7 @@ class EnemigoAgua : Enemigo, Mortal
     {
         Console.WriteLine("El nivelAgua de agua  del enemigo es: "+ nivelAgua);
         Console.WriteLine("El nivel de poder de agua del enemigo  es: "+ poderAgua);
-        base.mostrarDatos();
+        base.MostrarDatos();
     }
 
     public void rellenarAgua()

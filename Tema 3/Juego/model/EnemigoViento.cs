@@ -11,17 +11,18 @@ class EnemigoViento : Enemigo
     {
 
     }
-    public EnemigoViento(string nombre, int vida, int nivel, int fuerzaViento, int cantidadViento) : base (nombre, vida, nivel)
+    public EnemigoViento(string nombre, int vida, int nivel,Perfil perfil, int fuerzaViento, int cantidadViento) : base (nombre, vida, nivel,perfil)
     {
         this.cantidadViento = cantidadViento;
         this.fuerzaViento = fuerzaViento;
     }
     
 
-    public void mostrarDatos()
+    public new void MostrarDatos()
     {
-        
-        base.mostrarDatos();
+        Console.WriteLine("Fuerza de viento " + this.fuerzaViento);
+        Console.WriteLine("Cantidad de viento " + this.cantidadViento);
+        base.MostrarDatos();
     }
 
    

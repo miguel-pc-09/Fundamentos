@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-public class main
+public class Program
 {
     static void Main(string[] args)
     {
@@ -49,7 +49,7 @@ public class main
         //Console.WriteLine("El poder especial del jugar es "+jugador1.getPoder()?.Equals("cosa"));
         //Enemigo enemigo = new Enemigo("Enemigo1", 100, 150);
 
-
+/* 
         // Enemigo , EnemigoAgua
         EnemigoAgua enemigoAgua = new EnemigoAgua("Enemigo1", 100,"Tornado");
         //enemigoAgua.mostrarDatos();
@@ -60,7 +60,7 @@ public class main
 
 
         // Como son Enemigos es decir iguales solo que cada uno de un tipo distinto pero ENEMIGOS podemos meterlos en una lista
-        List<Enemigo> listaEnemigos = new List<Enemigo>();
+        List<Enemigo> listaEnemigos = new List<Enemigo>(); 
         listaEnemigos.Add(enemigoAgua);
         listaEnemigos.Add(enemigoFuego);
         listaEnemigos.Add(enemigoViento);
@@ -83,7 +83,18 @@ public class main
             
 
            item.mostrarDatos();
-        }
+        } */
+
+        Jugador jugador = new Jugador("Miguel", 100, 78, Tipo.constructor);
+        //jugador.mostrarDatos();
+        EnemigoAgua enemigoAgua = new EnemigoAgua("Enemigo1", 100, 40, Perfil.complejo, 10,"Tornado");
+        EnemigoViento enemigoViento = new EnemigoViento("Enemigo2", 100, 40, Perfil.casual, 10, 2);
+        EnemigoFuego enemigoFuego1 = new EnemigoFuego("Enemigo3",100, 40, Perfil.jefe, 10, "Quemadura");
+        EnemigoFuego enemigoFuego2 = new EnemigoFuego("Enemigo3",100, 40, Perfil.casual, 10, "Quemadura");
+
+        enemigoAgua.MostrarDatos();
+        
+        
     
     }
 }

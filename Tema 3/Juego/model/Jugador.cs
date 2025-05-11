@@ -6,9 +6,10 @@ public class Jugador
     private string? nombre; // Si no le pongo ?, obligado a tener valor 
     private string? poderEspecial;
     private int nivelAtaque, nivelDefensa, nivelVida;
+    private Tipo tipo;
+    public List<Habilidad> listaHabilidades;
 
     // Conjunto de habilidades
-    public List<Habilidad> listaHabilidades;
 
     // constructores -> 1- por defecto -> nunca tienen retorno -> porque retorna el objeto creado
     public Jugador(){}
@@ -27,13 +28,14 @@ public class Jugador
         this.listaHabilidades = new List<Habilidad>();
     }
 
-    public Jugador(string nombre, int nivelAtaque, int nivelDefensa)
+    public Jugador(string nombre, int nivelAtaque, int nivelDefensa, Tipo tipo)
     {
         this.nombre = nombre;
         this.nivelDefensa = nivelDefensa;
         this.nivelAtaque = nivelAtaque; 
         this.nivelVida = 100;
         this.listaHabilidades = new List<Habilidad>(); // 0 habilidades pero inicializada esperandolas
+        this.tipo = tipo;
     }
 
     public Jugador(string nombre, int nivelAtaque, int nivelDefensa, List<Habilidad> lista)
@@ -62,8 +64,43 @@ public class Jugador
         }
     }
 
+    public void Atacar(Enemigo enemigo)
+    {
+        int resultadoAtaque = 0;
+        bool exito = false;
+        try
+        {
+            resultadoAtaque = enemigo.vida/10;
+            exito = true;
+
+        }catch(System.DivideByZeroException e)
+        {
+            Console.WriteLine("No se puede dividir por 0");
+        }finally
+        {
+            if(exito)
+            {
+                Console.WriteLine("Ataque exitoso");
+            }
+            else 
+            {
+                Console.WriteLine("Ataque fallido");
+            }
+            Console.WriteLine("Terminando ataque");
+        }
+        Console.WriteLine("El resultado del ataque es "+ resultadoAtaque);
+    }
+
 
     // metodos
+    public void mostrarDatos()
+    {
+        Console.WriteLine("Nombre: "+this.nombre);
+        Console.WriteLine("Ataque: "+this.nivelAtaque);
+        Console.WriteLine("Defensa: "+this.nivelDefensa);
+        Console.WriteLine("vida: "+this.nivelVida);
+        Console.WriteLine("Tipo: "+this.tipo);
+    }
     public void AdquirirHabilidad(Habilidad habilidad)
     {
         this.listaHabilidades.Add(habilidad);
