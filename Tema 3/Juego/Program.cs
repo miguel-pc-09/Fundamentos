@@ -7,7 +7,7 @@ public class main
         Console.WriteLine("Bienvenido al juego de la UE");
 
 
-        List<Habilidad> lista = new List<Habilidad>();
+        /* List<Habilidad> lista = new List<Habilidad>();
         lista.Add(new Habilidad("Velocidad",2,100));
         lista.Add(new Habilidad("Fuerza",3,10));
         lista.Add(new Habilidad("Vision",1,50));
@@ -22,7 +22,7 @@ public class main
         jugadorBase.ListarActividades();
 
         Console.WriteLine("Habilidades del Pro");
-        jugadorPro.ListarActividades();
+        jugadorPro.ListarActividades(); */
 
 
        /* jugadorPobre.AdquirirHabilidad(lista[1]);
@@ -47,7 +47,43 @@ public class main
 
         //jugador1.setPoder("Vision");
         //Console.WriteLine("El poder especial del jugar es "+jugador1.getPoder()?.Equals("cosa"));
+        //Enemigo enemigo = new Enemigo("Enemigo1", 100, 150);
 
+
+        // Enemigo , EnemigoAgua
+        EnemigoAgua enemigoAgua = new EnemigoAgua("Enemigo1", 100,"Tornado");
+        //enemigoAgua.mostrarDatos();
+        // Enemigo, EnemigoFuego 
+        EnemigoFuego enemigoFuego = new EnemigoFuego("Enemigo2", 100, 40, 10, "Quemadura");
+        // Enemigo, EnemigoViento
+        EnemigoViento enemigoViento = new EnemigoViento("Enemigo3",100,90,1000,2);
+
+
+        // Como son Enemigos es decir iguales solo que cada uno de un tipo distinto pero ENEMIGOS podemos meterlos en una lista
+        List<Enemigo> listaEnemigos = new List<Enemigo>();
+        listaEnemigos.Add(enemigoAgua);
+        listaEnemigos.Add(enemigoFuego);
+        listaEnemigos.Add(enemigoViento);
+        foreach (var item in listaEnemigos)
+        {
+            // si es enemigo fuego -> en java instanceOF
+            if(item.GetType()== typeof(EnemigoFuego))
+            {
+                ((EnemigoFuego)item).realizarSanacion();
+            }
+            else if (item.GetType()== typeof(EnemigoAgua))
+            {
+                ((EnemigoAgua)item).rellenarAgua();
+            }
+            else if (item.GetType()== typeof(Mortal))
+            {
+                ((Mortal)item).realizarAtaqueMortal1();
+            }
+           
+            
+
+           item.mostrarDatos();
+        }
     
     }
 }
