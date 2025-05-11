@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Ficheros")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Ficheros2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8da650e41b8f336e91047393e0dd87a524fe6f9c")]
-[assembly: System.Reflection.AssemblyProductAttribute("Ficheros")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Ficheros")]
+[assembly: System.Reflection.AssemblyProductAttribute("Ficheros2")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Ficheros2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
